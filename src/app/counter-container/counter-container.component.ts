@@ -26,5 +26,5 @@ export class CounterContainerComponent {
 
   decrement = () => this.store.dispatch(new CounterDecrement());
 
-  reset = () => this.store.dispatch(new CounterReset({ value: 0 }));
+  reset = () => this.store.dispatch(new CounterReset());
 }

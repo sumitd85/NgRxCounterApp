@@ -6,7 +6,8 @@ export function reducer(state = 0, action: CounterAction): number {
       return state + 1;
     case CounterActionTypes.Decrement:
       return state - 1;
-    case CounterActionTypes.Reset:
+    case CounterActionTypes.ResetSuceess:
+      console.log(`Action called ${action.payload.value}`)
       return (state = action.payload.value);
     default:
       return state;

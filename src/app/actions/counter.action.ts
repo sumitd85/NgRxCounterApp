@@ -3,7 +3,8 @@ import { Action } from "@ngrx/store";
 export enum CounterActionTypes {
   Increment = "[Counter] Increment",
   Decrement = "[Counter] Decrement",
-  Reset = "[Counter] Reset"
+  Reset = "[Counter] Reset",
+  ResetSuceess = "[Counter] Reset Success"
 }
 
 export class CounterIncrement implements Action {
@@ -16,7 +17,15 @@ export class CounterDecrement implements Action {
 
 export class CounterReset implements Action {
   readonly type = CounterActionTypes.Reset;
-  constructor(public payload: { value: number }) {}
 }
 
-export type CounterAction = CounterIncrement | CounterDecrement | CounterReset;
+export class CounterResetSuccess implements Action {
+  readonly type = CounterActionTypes.ResetSuceess;
+  constructor(public payload: { value: number }) { }
+}
+
+export type CounterAction =
+  CounterIncrement | 
+  CounterDecrement | 
+  CounterReset | 
+  CounterResetSuccess;
