@@ -1,6 +1,10 @@
 <div>
-    <h4>{{ total }}</h4>
-    <button (click)="increment.emit()">Increment</button>
-    <button (click)="decrement.emit()">Decrement</button>
-    <button (click)="reset.emit()">Reset Counter</button>
+    <div class="jumbotron text-center">
+        <h4>{{ total }}</h4>
+    </div>
+    <div class="my-2">
+        <button type="button" class="btn btn-primary mx-1" (click)="increment.emit()">Increment</button>
+        <button type="button" class="btn btn-secondary mx-1" (click)="decrement.emit()">Decrement</button>
+        <button type="button" class="btn btn-success mx-1" (click)="reset.emit()">Reset Counter</button>
+    </div>
 </div>
