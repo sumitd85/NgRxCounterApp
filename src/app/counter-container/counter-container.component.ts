@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { Observable } from "rxjs";
 import { Store, select } from "@ngrx/store";
 import * as fromStore from "../reducers";
+//import { State } from "../reducers";
 
 import {
   CounterIncrement,
@@ -14,12 +14,15 @@ import {
   templateUrl: './counter-container.component.html',
 })
 export class CounterContainerComponent {
-  counter: number;
+  totalCount: number;
 
-  constructor(private store: Store<fromStore.State>) {
+  constructor(private store: Store<fromStore.EventState>) {
     this.store
-      .pipe(select("Counter"))
-      .subscribe(counter => (this.counter = counter));
+      .pipe(select("counterState"))
+      .subscribe((counterState) =>
+        (this.totalCount = counterState.Counter));
+
+        //this.totalCount = this.store.select(AppState => AppState.Counter);
   }
 
   increment = () => this.store.dispatch(new CounterIncrement());
